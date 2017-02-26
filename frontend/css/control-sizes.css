@@ -1,0 +1,179 @@
+/**begin input-group styles**/
+.ig
+{
+  padding-top:20px;
+  width:100%;
+}
+
+.ig-80
+{
+  padding-top:20px;
+  width:80%;
+  margin: auto;
+}
+
+/*begin form-text*/
+.ft
+{
+  width:100%;
+}
+
+.ft-5
+{
+  width:5%;
+}
+
+.ft-10
+{
+  width:10%;
+}
+
+.ft-20
+{
+  width:20%;
+}
+
+.ft-30
+{
+  width:30%;
+}
+
+.ft-40
+{
+  width:40%;
+}
+
+.ft-50
+{
+  max-width:50%;
+  min-width:40%;
+}
+
+.ft-60
+{
+  width:60%;
+}
+
+.ft-70
+{
+  width:70%;
+}
+
+.ft-80
+{
+  width:80%;
+}
+
+.ft-90
+{
+  width:90%;
+}
+/*end form-text*/
+
+/*begin form-control*/
+.fc
+{
+  max-width:100%;
+  min-width: 90%;
+}
+
+.fc-20
+{
+  max-width:20%;
+}
+
+.fc-30
+{
+  max-width:30%;
+}
+
+.fc-40
+{
+  max-width:40%;
+}
+
+.fc-50
+{
+  max-width:50%;
+}
+
+.fc-60
+{
+  max-width:60%;
+  min-width: 50%;
+}
+
+.fc-70
+{
+  max-width:70%;
+  min-width: 60%;
+}
+
+.fc-75
+{
+  max-width:75%;
+  min-width: 65%;
+}
+
+.fc-80
+{
+  max-width:80%;
+  min-width: 70%;
+}
+
+.fc-90
+{
+  max-width:90%;
+  min-width: 80%;
+}
+/*end form-control*/
+
+.cont-80
+{
+  width: 80%;
+  margin: auto;
+}
+
+.cont-70
+{
+  width: 70%;
+  margin: auto;
+}
+
+.cont-60
+{
+  width: 60%;
+  margin: auto;
+}
+
+.cont-50
+{
+  width: 50%;
+  margin: auto;
+}
+
+.cont-40
+{
+  width: 40%;
+  margin: auto;
+}
+/**end input-group styles**/
+
+@media (max-width: 767px)
+{
+  /**begin mobile input-group styles**/
+  .ig-80
+  {
+    width:100%;
+  }
+
+  .fc-70
+  {
+    width:100%;
+  }
+  .cont-80
+  {
+    width: 100%;
+  }
+  /**end mobile input-group styles**/
+}

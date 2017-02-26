@@ -1,0 +1,33 @@
+{
+  "name": "UJ-Hydrogen-Car-Society.",
+  "authors": [
+    "Casper"
+  ],
+  "description": "Website for the UJ hydrogen car society.",
+  "main": "app.js",
+  "keywords": [
+    "uj",
+    "hydrogen",
+    "car",
+    "society",
+    "engineering",
+    "science",
+    "students"
+  ],
+  "dependencies":{
+    "angular":"*",
+    "angular-route":"*",
+    "jquery":"*",
+    "bootstrap":"*"
+  },
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
