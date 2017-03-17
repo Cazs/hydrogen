@@ -1,7 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+//global vars
 const app = express();
+const fs = require('fs');
+const path = require('path');
 
 //init middle-ware
 app.use(bodyParser.urlencoded({extended:true}));//init body-parser to convert url-encoded data to JSON data
@@ -28,11 +31,23 @@ app.get('/', function(req, res)
   res.end('use /api/*');
 });
 
+/*app.get('/pagekit', function(req, res)
+{
+  var file_path = path.join(__dirname, '/index.php');
+  var stat = fs.statSync(file_path);
+  res.writeHead(200, {'Content-Type':'text/html',})
+  res.end('use /api/*');
+});*/
+
+//User route handlers
 app.post('/api/user/add', function(req, res)
 {
   users.ACCESS_MODE = access_levels.NO_ACCESS;//<---Check this out
   addObject(req, res, users);
 });
+
+//Comment route handlers
+
 
 addObject = function(req, res, obj_model)
 {
@@ -49,7 +64,7 @@ addObject = function(req, res, obj_model)
     return;
   }
 
-  if(obj_model.ACCESS_MODE >= access_levels.NO_ACCESS)
+  if(obj_model.WRITE_LVL == access_levels.ALL)
   {
     obj_model.add(obj, function(err)
     {
@@ -58,15 +73,18 @@ addObject = function(req, res, obj_model)
         errorAndCloseConnection(res, 500, errors.INTERNAL_ERR);
         logServerError(err);
         return;
+      }else{
+        console.log('added new object of type "%s"', obj_model._NAME);
+        res.json({'success':'200: Success'});
       }
-      res.json({'success':'200: Success'});
     });
-  }else {
+  }else
+  {
     if(session!=null)
     {
       if(!session.isExpired())
       {
-        if(session.access_level>=obj_model.ACCESS_MODE)
+        if(session.access_level>=obj_model.WRITE_LVL)
         {
           obj_model.add(obj, function(err)
           {
@@ -76,6 +94,7 @@ addObject = function(req, res, obj_model)
               logServerError(err);
               return;
             }
+            console.log('added new object of type "%s"', obj_model._NAME);
             res.json({'success':'200: Success'});
           });
         }else {
@@ -101,13 +120,13 @@ updateObject = function(req, res, obj_model)
 
   if(isNullOrEmpty(obj_id))
   {
-    console.log('Invalid object: ' + obj_id)
+    console.log('invalid object id: ' + obj_id)
     errorAndCloseConnection(res, 503, errors.INVALID_DATA);
     return;
   }
   if(!obj_model.isValid(obj))
   {
-    console.log('Invalid object: ' + obj)
+    console.log('invalid object: ' + obj)
     errorAndCloseConnection(res, 503, errors.INVALID_DATA);
     return;
   }
@@ -116,7 +135,7 @@ updateObject = function(req, res, obj_model)
   {
     if(!session.isExpired())
     {
-      if(session.access_level>=obj_model.ACCESS_MODE)
+      if(session.access_level>=obj_model.WRITE_LVL)
       {
         obj_model.update(obj_id, obj, function(err)
         {
@@ -126,6 +145,7 @@ updateObject = function(req, res, obj_model)
             logServerError(err);
             return;
           }
+          console.log('updated object "%s"', obj_id);
           res.json({'success':'200: Success'});
         });
       }else {
@@ -153,41 +173,47 @@ getObject = function(req, res, obj_model)
 
   res.setHeader('Content-Type','text/json');
 
-  if(obj_model.ACCESS_MODE == access_levels.NO_ACCESS)
+  if(obj_model.READ_LVL == access_levels.ALL)
   {
     obj_model.get(obj_id, function(err, obj)
     {
       if(err)
       {
-        errorAndCloseConnection(res,500,errors.INTERNAL_ERR);
+        errorAndCloseConnection(res, 500, errors.INTERNAL_ERR);
         logServerError(err);
       }
+      console.log('returning requested object "%s"', obj_id);
       res.json(obj);
     });
-  }else {
+  }else
+  {
     if(session!=null)
     {
       if(!session.isExpired())
       {
-        if(session.access_level>=obj_model.ACCESS_MODE)
+        if(session.access_level>=obj_model.READ_LVL)
         {
           obj_model.get(obj_id, function(err, obj)
           {
             if(err)
             {
-              errorAndCloseConnection(res,500,errors.INTERNAL_ERR);
+              errorAndCloseConnection(res, 500, errors.INTERNAL_ERR);
               logServerError(err);
             }
+            console.log('returning requested object "%s"', obj_id);
             res.json(obj);
           });
-        }else {
-          errorAndCloseConnection(res,502,errors.UNAUTH);
+        }else
+        {
+          errorAndCloseConnection(res, 502, errors.UNAUTH);
         }
-      }else {
-        errorAndCloseConnection(res,501,errors.SESSION_EXPIRED);
+      }else
+      {
+        errorAndCloseConnection(res, 501, errors.SESSION_EXPIRED);
       }
-    }else {
-      errorAndCloseConnection(res,501,errors.SESSION_EXPIRED);
+    }else
+    {
+      errorAndCloseConnection(res, 501, errors.SESSION_EXPIRED);
     }
   }
 }
@@ -195,11 +221,12 @@ getObject = function(req, res, obj_model)
 getAllObjects = function(req, res, obj_model)
 {
   var session_id = req.headers.session;
-  var session = sessions.search(session_id);
+  //var session = sessions.search(session_id);
 
   res.setHeader('Content-Type','text/json');
 
-  if(obj_model.ACCESS_MODE == access_levels.NO_ACCESS)
+  console.log('received GET_ALL request of type: %s', obj_model);
+  if(obj_model.READ_LVL == access_levels.ALL)
   {
     obj_model.getAll(function(err, objs)
     {
@@ -208,31 +235,37 @@ getAllObjects = function(req, res, obj_model)
         errorAndCloseConnection(res,500,errors.INTERNAL_ERR);
         logServerError(err);
       }
+      console.log('returning all objects of type "%s"', obj_model._NAME);
       res.json(objs);
     });
-  }else {
+  }else
+  {
     if(session!=null)
     {
       if(!session.isExpired())
       {
-        if(session.access_level>=obj_model.ACCESS_MODE)
+        if(session.access_level>=obj_model.READ_LVL)
         {
           obj_model.getAll(function(err, objs)
           {
             if(err)
             {
-              errorAndCloseConnection(res,500,errors.INTERNAL_ERR);
+              errorAndCloseConnection(res, 500, errors.INTERNAL_ERR);
               logServerError(err);
             }
+            console.log('returning all objects of type "%s"', obj_model._NAME);
             res.json(objs);
           });
-        }else {
+        }else
+        {
           errorAndCloseConnection(res,502,errors.UNAUTH);
         }
-      }else {
+      }else
+      {
         errorAndCloseConnection(res,501,errors.SESSION_EXPIRED);
       }
-    }else {
+    }else
+    {
       errorAndCloseConnection(res,501,errors.SESSION_EXPIRED);
     }
   }
@@ -311,7 +344,7 @@ app.get('/api/activate/:user/:code', function(req, res)
       {
         //TODO: send email
         console.log('user "%s" has been successfully activated.');
-        var mailjet = require ('node-mailjet').connect('f8d3d1d74c95250bb2119063b3697082', '8304b30da4245632c878bf48f1d65d92');
+        /*var mailjet = require ('node-mailjet').connect('f8d3d1d74c95250bb2119063b3697082', '8304b30da4245632c878bf48f1d65d92');
 
         var request = mailjet.post("send").request(
                       {
@@ -331,7 +364,7 @@ app.get('/api/activate/:user/:code', function(req, res)
                           console.log ('Email server response: %s', response);
                         if(body)
                           console.log ('Email server response statusCode: %s', body.response.res.statusCode);
-                      });
+                      });*/
         //TODO: delete vericode
         res.end('200: success');
       }else{

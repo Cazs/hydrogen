@@ -48,8 +48,10 @@ var userSchema = mongoose.Schema(
 );
 
 var Users = module.exports = mongoose.model('users',userSchema);
-module.exports.ACCESS_MODE = access_levels.NORMAL;//Required access level to execute these methods
+module.exports.WRITE_LVL = access_levels.NORMAL;//only registered users can comment
+module.exports.READ_LVL = access_levels.ALL;
 module.exports.VALIDATION_MODE = this.VALIDATION_MODE_STRICT;//Required validation mode to execute these methods
+module.exports._NAME = 'User';
 
 //Get Users
 module.exports.getAll = function(callback)
@@ -73,7 +75,6 @@ module.exports.add = function(user, callback)
   vericode.add(user.usr, function(code, err)
   {
     //if vericode was created, create user
-    console.log('>>>%s', code||err);
     user.pwd = crypto.createHash('sha1').update(user.pwd).digest('hex');
     user.active=false;
     Users.create(user, callback);
@@ -88,7 +89,7 @@ module.exports.update = function(id, user, callback)
   {
     if(user.access_level>access_levels.NORMAL)
     {
-      console.log('User "%s[%s]", tried to upgrade his/her account to elevated privilleges.', user, id);
+      console.log('User "%s[%s]", tried to create an account with elevated privilleges.', user, id);
       return;
     }
   }

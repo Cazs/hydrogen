@@ -21,6 +21,7 @@ var vericodeSchema = mongoose.Schema(
 
 var Vericodes = module.exports = mongoose.model('vericodes',vericodeSchema);
 module.exports.ACCESS_MODE = access_levels.NORMAL;//Required access level to execute these methods
+module.exports._NAME = 'Vericode';
 
 //Get Users
 module.exports.getAll = function(callback)

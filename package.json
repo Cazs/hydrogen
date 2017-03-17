@@ -16,12 +16,15 @@
     "science",
     "engineering"
   ],
-  "dependencies":{
+  "dependencies":
+  {
      "mongoose":"*",
      "express":"*",
      "body-parser":"*",
      "linked-list-adt":"*",
-     "node-mailjet":"*"
+     "node-mailjet":"*",
+     "generator-keystone":"*",
+     "dotenv":"*"
   },
   "devDependencies":{
    "nodemon":"*"

@@ -13,9 +13,10 @@
 
     <title>Hydrogen Car Society</title>
 
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/control-sizes.css" type="text/css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/sponsor.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/control-sizes.css" type="text/css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Bootstrap core CSS-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -45,7 +46,7 @@
                   <span id="third_bar" style="background-color:black;" class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                  <img style="margin-top:-15px;" src="images/h_society.svg" width="80px" height="80px"/>
+                  <img style="margin-top:-15px;" src="images/logo.svg" width="80px" height="80px"/>
                 </a>
                 <button class="navbar-toggle btn btn-default" style="float:left;margin-top:25px;" onclick="showLogin()">Log in</button>
                 <button class="navbar-toggle btn btn-default" style="float:left;margin-top:25px;margin-left:10px;" onclick="showSignup()">Sign up</button>
@@ -55,6 +56,7 @@
                   <li class="active"><a href="#!/home">Home</a></li>
                   <li><a href="#!/about">About</a></li>
                   <li><a href="#!/contact">Contact</a></li>
+                  <li><a href="#!/sponsors">Sponsors</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><button class="btn btn-default" style="float:left;margin-top:25px;" onclick="showLogin()">Log in</button></li>
@@ -62,16 +64,16 @@
                   <li class="active">
                     <li class="dropdown">
                       <span class="sr-only">(current)</span>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img id="profile_btn" src="./images/ic_account_circle_black_48px.svg" style="float:left;margin-left:10px;" width="48" height="48"/>
                         <span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Account</a></li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="">Account</a></li>
+                        <li><a href="">Settings</a></li>
                         <li role="separator" class="divider"></li>
                         <!--<li class="dropdown-header">Nav header</li>-->
-                        <li><a href="#">Log out</a></li>
+                        <li><a href="">Log out</a></li>
                       </ul>
                     </li>
                   </li>
@@ -193,6 +195,13 @@
     <script src="controllers/login.js"></script>
 
     <script>
+      $('#navbar li').click(function(evt)
+      {
+        console.log($('ng-scope'));
+        $('#navbar li').removeClass('active');
+        $(this).addClass('active');
+      });
+
       function showLogin()
       {
         if($( "#dialog_login" ).parent().css('display')=='none')

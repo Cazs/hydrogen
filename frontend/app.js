@@ -16,4 +16,8 @@ hydrocar.config(function($routeProvider)
   {
       templateUrl:'views/contact.html'
   })
+  .when('/sponsors',
+  {
+      templateUrl:'views/sponsors.html'
+  });
 });
