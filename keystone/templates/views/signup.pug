@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1 Sign Up
+
+block content
+  .container
+    if formSubmitted
+      h2 Account created, requesting activation...
+    else
+      form(method='post', style='max-width:80%;margin:auto;')
+        input(type='hidden', name='action', value='signup')
+        .row
+          .form-group(class=validationErrors.signuperror ? 'has-error' : null)
+            h4 username
+            input(type='text', name='name').form-control
+        .row
+          .form-group(class=validationErrors.signuperror ? 'has-error' : null)
+            h4 email
+            input(type='text', name='email').form-control
+        .row
+          .form-group(class=validationErrors.signuperror ? 'has-error' : null)
+            h4 password
+            input(type='password', name='password').form-control
+        .row
+          .form-actions
+            button(type='submit', style='width:200px;height:70px;').form-control.btn.btn-success Sign up

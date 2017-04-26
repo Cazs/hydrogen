@@ -17,8 +17,8 @@
  * See the Express application routing documentation for more information:
  * http://expressjs.com/api.html#app.VERB
  */
-
 var keystone = require('keystone');
+
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 
@@ -27,20 +27,27 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
-var routes = {
+var routes =
+{
 	views: importRoutes('./views'),
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function (app)
+{
+	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+	// app.get('/protected', middleware.requireUser, routes.views.protected);
+
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
+	app.get('/login', routes.views.login);
+	app.get('/about', routes.views.about);
+	app.get('/team', routes.views.team);
+	app.get('/donate', routes.views.donate);
+	app.post('/login', routes.views.login);
+	app.all('/signup', routes.views.signup);
 	app.all('/contact', routes.views.contact);
-
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
-
 };

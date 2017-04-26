@@ -1,0 +1,24 @@
+extends ../layouts/default
+
+block intro
+  .container
+    h1 Login
+
+block content
+  .container
+    if loggedOn
+      h2 logged in.
+    else
+      form(method='post', style='max-width:80%;margin:auto;')
+        input(type='hidden', name='action', value='login')
+        .row
+          .form-group(class=validationErrors.loginerror ? 'has-error' : null)
+            h4 username
+            input(type='text', name='username').form-control
+        .row
+          .form-group(class=validationErrors.loginerror ? 'has-error' : null)
+            h4 password
+            input(type='password', name='password').form-control
+        .row
+          .form-actions
+            button(type='submit', style='width:200px;height:70px;').form-control.btn.btn-success Login

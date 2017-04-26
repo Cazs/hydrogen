@@ -1,0 +1,250 @@
+/*
+ * Globals
+ */
+ *
+ {
+     font-family: 'Raleway', sans-serif;
+ }
+
+/* Links */
+a,
+a:focus,
+a:hover
+{
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus
+{
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+html,
+body
+{
+  height: 100%;
+  background-color: #fff; /*url('../images/gears.jpg');*/
+}
+
+body
+{
+  color: #fff;
+  text-align: center;
+}
+
+.navbar, #navbar
+{
+  height: 60px;
+}
+
+.navbar-brand
+{
+  margin-top: 5px;
+}
+
+#navbar
+{
+  margin-top: 10px;
+}
+
+#dialog_signup, #dialog_login
+{
+  /*box-shadow: 0px 0px 30px #343434;*/
+  overflow: hidden;
+}
+
+.form_control_container
+{
+  width: 100%;
+  margin:auto;
+}
+
+#navbar a
+{
+  line-height: 100%;
+}
+
+#navbar a:hover
+{
+  color:#0D8FFF;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper
+{
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner
+{
+  display: table-cell;
+  vertical-align: top;
+}
+
+/*
+ * Cover
+ */
+ .cover-container
+ {
+   margin-right: auto;
+   margin-left: auto;
+ }
+
+.cover
+{
+  padding: 10px 20px;
+  /*background-color:#FF7C05;/*rgba(196, 76, 0, 1.0);*/
+  border-radius: 10px;
+}
+
+.cover .btn-lg
+{
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot
+{
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+/* Padding for spacing */
+.inner
+{
+  padding: 30px;
+}
+
+#about_text p:first-child:first-letter {
+  color: #ff7400;
+  float: left;
+  font-family: Georgia;
+  font-size: 80px;
+  line-height: 80px;
+  /*padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;*/
+}
+#social-link-container
+{
+  margin-top: 10px;
+}
+
+#social-link-container li
+{
+  display:inline-block;
+}
+
+.social-link
+{
+  width:30px;
+  height:30px;
+  background-repeat:no-repeat;
+}
+
+#lnk_face
+{
+  background:url('../images/facebook_grey.svg');
+}
+
+#lnk_twit
+{
+  background:url('../images/twitter_grey.svg');
+}
+
+#lnk_inst
+{
+  background:url('../images/instagram_grey.svg');
+}
+
+
+#lnk_face:hover
+{
+  background: url('../images/facebook.svg');
+}
+
+#lnk_twit:hover
+{
+  background: url('../images/twitter.svg');
+}
+
+#lnk_inst:hover
+{
+  background: url('../images/instagram.svg');
+}
+
+@media (max-width: 768px)
+{
+  #navbar
+  {
+    margin-top: 5px;
+    height:250px;
+    background-color:#343434;
+    border-bottom: 1px solid #0D8FFF;
+  }
+
+  #navbar a
+  {
+      font-size: 28pt;
+      color:#ff7400;
+  }
+
+  .content-container
+  {
+      margin-top: 100px;
+  }
+
+  .navbar-right
+  {
+    display: none;
+  }
+}
+
+@media (min-width: 768px)
+{
+  .mastfoot
+  {
+    /*background: rgba(43,117,255,.6);*/
+    position: relative;
+    bottom: -10px;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner
+  {
+    vertical-align: middle;
+  }
+
+  /* Handle the widths */
+  .mastfoot,
+  .cover-container
+  {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px)
+{
+  .mastfoot,
+  .cover-container
+  {
+    /*width: 700px;*/
+  }
+}

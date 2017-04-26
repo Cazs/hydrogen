@@ -17,12 +17,17 @@ var _ = require('lodash');
 	the navigation in the header, you may wish to change this array
 	or replace it with your own templates / logic.
 */
-exports.initLocals = function (req, res, next) {
-	res.locals.navLinks = [
+exports.initLocals = function (req, res, next)
+{
+	res.locals.navLinks =
+	[
 		{ label: 'Home', key: 'home', href: '/' },
+		{ label: 'Team', key: 'team', href: '/team' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
 		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: 'About', key: 'about', href: '/about' },
+		{ label: 'Donate', key: 'donate', href: '/donate' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -47,11 +52,14 @@ exports.flashMessages = function (req, res, next) {
 /**
 	Prevents people from accessing protected pages when they're not signed in
  */
-exports.requireUser = function (req, res, next) {
-	if (!req.user) {
+exports.requireUser = function (req, res, next)
+{
+	if (!req.user)
+	{
 		req.flash('error', 'Please sign in to access this page.');
 		res.redirect('/keystone/signin');
-	} else {
+	} else
+	{
 		next();
 	}
 };

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -15,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92pre2 r"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo_title.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,14 +24,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.33197215"
-     inkscape:cx="185.08273"
-     inkscape:cy="632.15296"
+     inkscape:cx="594.75565"
+     inkscape:cy="620.10376"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="704"
-     inkscape:window-x="1366"
+     inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
@@ -57,7 +55,7 @@
        transform="translate(-168.38839,-53.634832)" />
     <g
        id="g4830"
-       transform="matrix(0.45206825,0,0,0.45036972,-8.7710389,35.869275)">
+       transform="matrix(0.28346163,0,0,0.23710997,31.670645,35.869275)">
       <g
          id="g4764">
         <g
@@ -107,14 +105,14 @@
          id="g4800" />
     </g>
     <ellipse
-       style="fill:#0d46ff;fill-opacity:1;fill-rule:nonzero;stroke:#0d46ff;stroke-width:14.84913921;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       style="fill:#0d46ff;fill-opacity:1;fill-rule:nonzero;stroke:#0d46ff;stroke-width:8.53172302;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
        id="path4620"
-       cx="197.11864"
-       cy="186.76756"
-       rx="5.2209859"
-       ry="5.3276105" />
+       cx="160.77026"
+       cy="115.31398"
+       rx="3.2737296"
+       ry="2.8048723" />
     <g
-       transform="matrix(0.97998633,0,0,1,-5.5191794,-18.356773)"
+       transform="matrix(0.6144836,0,0,0.52647849,33.709668,7.320427)"
        id="g4579"
        style="fill:#0d8fff;fill-opacity:1;stroke:#0d31ff;stroke-opacity:1">
       <path
@@ -136,5 +134,23 @@
          d="m 131.83366,170.74534 c -30.48081,0.3198 -44.271325,0.63338 -44.271325,0.63338"
          style="opacity:1;fill:#0d8fff;fill-opacity:1;stroke:#0d31ff;stroke-width:21;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4511"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="scale(0.26458333)"><flowRegion
+         id="flowRegion4513"><rect
+           id="rect4515"
+           width="795.24744"
+           height="521.12811"
+           x="54.221416"
+           y="610.42853" />
+	</flowRegion>
+	<text
+         id="flowPara4517"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-	size:66.66666751px;line-height:92.25827026px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'">UJ Hydrogen Innovation Society</text><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:66.66666751px;line-height:92.25827026px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         id="flowPara4519">Admin Dashboard</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:66.66666751px;line-height:92.25827026px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
+         id="flowPara4521">Login</flowPara></flowRoot>  </g>
 </svg>
