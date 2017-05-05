@@ -191,6 +191,11 @@ body
   background: url('../images/instagram.svg');
 }
 
+#contact-form-container
+{
+  width:600px;
+}
+
 @media (max-width: 768px)
 {
   #navbar
@@ -205,6 +210,11 @@ body
   {
       font-size: 28pt;
       color:#ff7400;
+  }
+
+  #contact-form-container
+  {
+    width:300px;
   }
 
   .content-container
