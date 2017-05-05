@@ -110,59 +110,12 @@ html
 						#lnk_inst.social-link
 
 			p(style="color:#000;")
-				img(alt="coded", src='http://localhost:5000/images/ic_code_black_48px.svg', style="width:25px;height:25px;")
+				img(alt="coded", src='images/ic_code_black_48px.svg', style="width:25px;height:25px;")
 				|  with
-				img(alt="love", src='http://localhost:5000/images/ic_favorite_black_48px.svg', style="width:25px;height:25px;")
+				img(alt="love", src='images/ic_favorite_black_48px.svg', style="width:25px;height:25px;")
 				|  by
 				a(href="http://casper.ndlovu.me", style="margin-left:10px;") Casper
 				|  | Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
-
-			#dialog_signup.popup-dialog(title='Sign up')
-				form.form(style='margin-top:5px;margin-left:auto;margin-right:auto;', ng-submit='register()', ng-controller='RegisterController')
-					.form-group
-						.row
-							.col-lg-12.col-md-12.col-sm-12.col-xs-12
-								.form_control_container
-									.input-group.ig
-										span#span_username.input-group-addon.form-text.ft-50 Username
-										|
-										input#username.form-control.fc-100(ng-model='username', type='text', placeholder='Enter your username.', aria-describedby='username', name='username')
-									.input-group.ig
-										span#span_email.form-text.input-group-addon.ft-30 Student number
-										|
-										input#student_number.form-control.fc-100(ng-model='student_number', type='text', placeholder='Enter your UJ student nr.', aria-describedby='student number', name='student_number')
-										|
-										span#span_email_default.form-text.input-group-addon.ft-30 @student.uj.ac.za
-									.input-group.ig
-										span#span_password.form-text.input-group-addon.ft-30 Password
-										.fc-100
-										input#passwd.form-control(ng-model='password', type='password', style='width:100%;z-index:0;', placeholder='Enter your password.', aria-describedby='password', name='passwd')
-										|
-										button(type='button', onclick="showHidePassword('passwd')", style='position:absolute;margin-left:-10.1%;margin-top:3px;width:10%;height:60%;background:none;border:none;')
-											span#passwd_icon.glyphicon.glyphicon-eye-open
-						div(style='width:150px;margin:auto;margin-top:30px;')
-							button.btn.btn-success(type='submit', style='width:150px;height:50px;margin:auto;') sign up
-
-			#dialog_login.popup-dialog(title='Log in')
-				form.form(style='margin-top:5px;margin-left:auto;margin-right:auto;', ng-submit='login()', ng-controller='LoginController')
-					.form-group
-						.row
-							.col-lg-12.col-md-12.col-sm-12.col-xs-12
-								.form_control_container
-									.input-group.ig
-										span#span_username.form-text.input-group-addon.ft-30 Username
-										|
-										input#username.form-control.fc-100(ng-model='username', type='text', placeholder='Enter your username.', aria-describedby='username', name='username')
-									.input-group.ig
-										span#span_password.form-text.input-group-addon.ft-30 Password
-										.fc-100
-										input#passwd.form-control(ng-model='password', type='password', style='width:100%;z-index:0;', placeholder='Enter your password.', aria-describedby='password', name='passwd')
-										|
-										button(type='button', onclick="showHidePassword('passwd')", style='position:absolute;margin-left:-10.1%;margin-top:3px;width:10%;height:60%;background:none;border:none;')
-											span#passwd_icon.glyphicon.glyphicon-eye-open
-						div(style='width:150px;margin:auto;margin-top:30px;')
-							button.btn.btn-success(type='submit', style='width:150px;height:50px;margin:auto;') login
-
 
 		//- JAVASCRIPT
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
